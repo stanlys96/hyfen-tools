@@ -65,3 +65,5 @@ export { default as User } from "./user";
 export { default as EditAction } from "./edit_action";
 export { default as AddUserAction } from "./add_user_action";
 export { default as Wallet } from "./wallet";
+export { default as ChangePassword } from "./change_password";
+export { default as ChangeEmail } from "./change_email";
