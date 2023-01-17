@@ -15,12 +15,12 @@ export default function Index() {
   };
 
   return (
-    <div className="relative flex bg-app-background inset-0 h-screen w-full">
+    <div className="relative flex bg-app-background min-h-screen max-h-full w-full">
       {/* Form Login */}
-      <div className="relative w-2/5 flex flex-col justify-center ">
+      <div className="relative w-2/5 flex flex-col justify-center px-[104px] py-24">
         {/* Container Login */}
 
-        <div className="relative px-[104px]">
+        <div className="relative">
           {/* Logo */}
           <div className="relative text-white text-left wf">
             <LogoApp />
@@ -62,7 +62,13 @@ export default function Index() {
             </Link>
 
             {/* Button Login */}
-            <button className="relative w-full bg-app-disabled mt-[30px] py-[14px] rounded-full text-white">
+            <button
+              className={[
+                'relative w-full transition-all duration-300 mt-[30px] py-[14px] rounded-full text-white',
+                form.email && form.password
+                  ? 'bg-app-primary hover:bg-app-primary/80'
+                  : 'bg-app-disabled cursor-not-allowed',
+              ].join(' ')}>
               Login
             </button>
 
@@ -87,9 +93,9 @@ export default function Index() {
         </div>
       </div>
       {/* Image Background */}
-      <div className="relative bg-app-background2 w-3/5">
+      <div className="relative box-border grid grid-cols-1 m-0 bg-app-background2 w-3/5">
         {/* Text Heading  */}
-        <div className="relative hidden">
+        <div className="relative z-10 font-medium tracking-wide flex flex-col justify-end px-24 items-start">
           <h2 className="text-heading4 font-light text-white">
             Welcome to Hyfen Tools
           </h2>
@@ -98,13 +104,18 @@ export default function Index() {
           </h1>
         </div>
 
-        <div className="absolute bottom-0 right-0 h-[500px] w-full">
-          <Image
-            alt="img-bg"
-            src="/images/login/Dark.png"
-            layout="fill"
-            objectFit="contain"
-          />
+        <div className="relative w-full flex justify-end items-end">
+          <div className="relative h-[580px]  2xl:h-[680px] 2xl:w-[90%] w-[80%]">
+            <Image
+              alt="img-bg"
+              className="object-cover"
+              src="/images/login/Dark.png"
+              sizes="50vw"
+              layout="fill"
+              // height={539}
+              // width={811}
+            />
+          </div>
         </div>
       </div>
     </div>
